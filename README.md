@@ -10,6 +10,7 @@ This repository is AWS Lambda function's upload files.
 
 - botocore
 - boto3
+- os
 
 ## How To Use
 
@@ -17,21 +18,20 @@ This repository is AWS Lambda function's upload files.
 
 ```
 git clone https://github.com/makaaso/lambda-rds-operation.git
-```
-
-### 2.edit tag name
-
-```
 cd lambda-rds-operation
-vi lambda-rds-operation.py
------------
-set db instance on "<DB_Instance>"
------------
 ```
 
-### 3.prepare upload zip file
+### 2.prepare upload zip file
 
 ```
+pip install botocore -t ./ --upgrade
+pip install boto3 -t ./ --upgrade
 zip -r ../lambda-rds-operation.zip .
+```
+
+### 3.set environment variables on AWS Console
+
+```
+TAG_NAME : <TAG NAME>
 ```
 

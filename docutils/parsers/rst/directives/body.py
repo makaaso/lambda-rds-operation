@@ -145,9 +145,9 @@ class CodeBlock(Directive):
 
         # set up lexical analyzer
         try:
-            tokens = Lexer('\n'.join(self.content), language,
+            tokens = Lexer(u'\n'.join(self.content), language,
                            self.state.document.settings.syntax_highlight)
-        except LexerError as error:
+        except LexerError, error:
             raise self.warning(error)
 
         if 'number-lines' in self.options:

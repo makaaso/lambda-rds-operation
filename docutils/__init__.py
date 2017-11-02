@@ -109,14 +109,14 @@ __version_details__ = ''
 """
 
 
-class ApplicationError(Exception):
+class ApplicationError(StandardError):
     # Workaround:
     # In Python < 2.6, unicode(<exception instance>) calls `str` on the
     # arg and therefore, e.g., unicode(StandardError(u'\u234')) fails
     # with UnicodeDecodeError.
     if sys.version_info < (2,6):
         def __unicode__(self):
-            return ', '.join(self.args)
+            return u', '.join(self.args)
 
 
 class DataError(ApplicationError): pass

@@ -75,7 +75,7 @@ class Lexer(object):
            Also strip the final newline (added by pygments).
         """
         tokens = iter(tokens)
-        (lasttype, lastval) = next(tokens)
+        (lasttype, lastval) = tokens.next()
         for ttype, value in tokens:
             if ttype is lasttype:
                 lastval += value
